@@ -14,11 +14,12 @@ var cheerio = require("cheerio");
 
 var PORT = 3000;
 
+try {
 // Initialize Express
 var app = express();
 
 // Configure middleware
-try {
+
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Use body-parser for handling form submissions
@@ -48,19 +49,14 @@ app.engine("hbs", exphbs({
 app.set("view engine", ".hbs");
 
 // Import routes and give the server access to them.
-// var routes = require("./controllers/burgers_controller.js");
-
-// app.use('/', routes);
-
-app.get('/', function (req, res) {
-  res.render('home');
-});
-}
-catch(err) {
-  console.log(err);
-} 
+require("./routes/index.js")(app);
 
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
+
+}
+catch(err) {
+  console.log(err);
+}
