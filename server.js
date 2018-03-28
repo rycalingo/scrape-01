@@ -22,10 +22,13 @@ var app = express();
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
+
+// Use express.static to serve the public folder as a static directory
+app.use(express.static(process.cwd() + "/public"));
+
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
-// Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
@@ -58,5 +61,5 @@ app.listen(PORT, function() {
 
 }
 catch(err) {
-  console.log(err);
+  if (err) console.log(err);
 }

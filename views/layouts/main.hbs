@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title>Home Space</title>
+  	<title>Article Swiper - {{title}}</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   
     <!-- Font Awesome Glyphicons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
-    <!-- local styles -->
-  <link rel="stylesheet" href="/assets/css/styles.css" type="text/css" />
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- local styles -->
+  <link rel="stylesheet" type="text/html" href="assets/css/styles.css" />
+  
 	</head>
 	<body>
-          {{{body}}}
+        <div class="jumbotron jumbotron-fluid" id="main_section">
+          <div class="container">
+            <h1>MOONGO SCRAPER</h1> 
+            <p>{{page}}</p> 
+          </div>
+        </div>
+        
+        <div class="container-fluide">
+        {{{body}}}
+        </div>
+
 	</body>
 </html>
