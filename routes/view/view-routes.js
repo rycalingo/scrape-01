@@ -1,27 +1,33 @@
-
+// Require all models
+var db = require("../../models/index.js");
 
 module.exports = function(app) {
 
-    app.get('/:path?', function (req, res) {
-        var dir = req.params.path;
-        console.log(dir);
-        switch (dir) {
-            case 'saved':
-                res.render('saved',
-                {
-                    title: 'Saved', 
-                    page: 'Saved Articles',
-                });
-                break;
-            default:
-                res.render('home',
-                {
-                    title: 'Home',
-                    page: 'Home',
+    app.get('/saved', function (req, res) {
+        // var dir = req.params.path;
+        res.render('saved',
+        {
+            title: 'Saved', 
+            page: 'Saved Articles',
+        });
+        
+    });
 
-                });
-                break;
-        }
+    app.get('/', function (req, res) {
+        // var dir = req.params.path;
+
+        db.Headline.find(function(data) {
+            console.log(data);
+            var hbsObject = {
+                headline: data
+            };
+        });
+        res.render('home',
+        {
+            title: 'Home',
+            page: 'Home',
+
+        });
         
     });
 };
