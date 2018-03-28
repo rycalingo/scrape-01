@@ -45,11 +45,26 @@ app.use(bodyParser.json());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("hbs", exphbs({
+var hbs = exphbs.create({
   defaultLayout: "main",
-  extname: '.hbs'
-}));
-app.set("view engine", ".hbs");
+  extname: '.hbs',
+  helpers: {
+    // add '#is' helper
+    is: function(lvalue, rvalue, options) {
+      if (arguments.length < 2)
+          throw new Error("Handlebars Helper equal needs 2 parameters");
+      if( lvalue!=rvalue ) {
+          return options.inverse(this);
+      } else {
+          return options.fn(this);
+      }
+    }
+  }
+});
+
+app.engine("hbs", hbs.engine);
+
+app.set("view engine", "hbs");
 
 // Import routes and give the server access to them.
 require("./routes/index.js")(app);

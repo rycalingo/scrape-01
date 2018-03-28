@@ -3,7 +3,7 @@
 module.exports = function(app) {
 
     app.get('/:path?', function (req, res) {
-        let dir = req.params.path;
+        var dir = req.params.path;
         console.log(dir);
         switch (dir) {
             case 'saved':
@@ -11,14 +11,14 @@ module.exports = function(app) {
                 {
                     title: 'Saved', 
                     page: 'Saved Articles',
-                    navSaved: 'active'
                 });
                 break;
             default:
                 res.render('home',
                 {
                     title: 'Home',
-                    navHome: 'active'
+                    page: 'Home',
+
                 });
                 break;
         }
