@@ -5,8 +5,8 @@ var path = require("path");
 module.exports = function(app) {
 
   module.exports = {
-    // API: require("./api/api-routes.js")(app),
-    VIEW: require("./view/view-routes.js")(app)
+    API: require("./api/api-routes")(app),
+    VIEW: require("./view/view-routes")(app)
   };
 
 

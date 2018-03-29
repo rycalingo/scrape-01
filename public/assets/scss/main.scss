@@ -1,60 +1,76 @@
+@mixin box-shadow { box-shadow: 0px 4px 5px 3px rgba(0,0,0,0.12); }
 
-
-#main_sec
-    height: 225px
-    margin-bottom: 0
-
+#main_sec {
+    height: 225px;
+    margin-bottom: 0;
+}
 // Navigation Bar
-.navbar 
-    padding-top: 0
-    padding-bottom: 0
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
 
-    .nav-item
-        padding-left: 20px
-        padding-right: 20px
+    .nav-item {
+        padding-left: 20px;
+        padding-right: 20px;
 
-        &.active
-            background-color: #2dafff
-            height: 100%
+        &.active {
+            background-color: #2dafff;
+            height: 100%;
 
-
+        }
+    }
+}
 
 // Fetch article button
-#btnFetch
-    position: absolute
-    top: 70px
-    right: 20px
-    width: 190px
-    margin: 10px 10px
-    background-color: #ffb100
+#btnFetch {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 190px;
+    margin: 10px 10px;
+    background-color: #ffb100;
+    border: 2px solid rgba(0,0,0,0);
 
-.stage
-    width: 100%
-    margin-bottom: 10px
-    position: relative
+    // text
+    color: #e5e5e5;
 
-    .article-wrapper
-        display: flex
-        flex-wrap: wrap
-        margin-top: 30px
-        padding: 10px 20px
+    transition: 0.3s border color;
 
-    .article-item
-        width: 320px
-        height: 200px
-        margin: 10px
-        padding: 10px
-        color: #ffffff
-        background-color: #ffffff
+    &:hover {
+        color: #ffffff;
+        border: 2px solid rgb(255, 255, 255);
+    }
+}
 
-.shadow
-    box-shadow: 0px 4px 5px 3px rgba(0,0,0,0.12)
+.stage {
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
 
-.no_articles
-    width: 100%
-    padding: 10px
-    border: solid 1px #ececec
+    .article-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        padding: 10px 20px;
+    }
+    .article-item {
+        width: 320px;
+        height: 200px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #ffffff;
+        @include box-shadow;
+    }
+}
 
-    p
-        text-align: center
-        margin: 0
+.empty_list {
+    @include box-shadow;
+    width: 100%;
+    padding: 10px;
+    border: solid 1px #ececec;
+
+    p {
+        text-align: center;
+        margin: 0;
+    }
+}

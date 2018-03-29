@@ -1,5 +1,5 @@
 // Require all models
-var db = require("../../models/index.js");
+var db = require("../../models");
 
 module.exports = function(app) {
 
@@ -17,11 +17,13 @@ module.exports = function(app) {
         // var dir = req.params.path;
 
         db.Headline.find(function(data) {
+            
             console.log(data);
+            
             var hbsObject = {
                 headline: data
             };
-        });
+        })
         res.render('home',
         {
             title: 'Home',

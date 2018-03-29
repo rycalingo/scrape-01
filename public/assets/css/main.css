@@ -18,7 +18,13 @@
   right: 20px;
   width: 190px;
   margin: 10px 10px;
-  background-color: #ffb100; }
+  background-color: #ffb100;
+  border: 2px solid transparent;
+  color: #e5e5e5;
+  transition: 0.3s border color; }
+  #btnFetch:hover {
+    color: #ffffff;
+    border: 2px solid white; }
 
 .stage {
   width: 100%;
@@ -34,17 +40,15 @@
     height: 200px;
     margin: 10px;
     padding: 10px;
-    color: #ffffff;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
 
-.shadow {
-  box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
-
-.no_articles {
+.empty_list {
+  box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12);
   width: 100%;
   padding: 10px;
   border: solid 1px #ececec; }
-  .no_articles p {
+  .empty_list p {
     text-align: center;
     margin: 0; }
 
