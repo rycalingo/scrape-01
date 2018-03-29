@@ -26,6 +26,7 @@
     right: 20px
     width: 190px
     margin: 10px 10px
+    background-color: #ffb100
 
 .stage
     width: 100%
@@ -43,7 +44,17 @@
         height: 200px
         margin: 10px
         padding: 10px
+        color: #ffffff
         background-color: #ffffff
 
 .shadow
     box-shadow: 0px 4px 5px 3px rgba(0,0,0,0.12)
+
+.no_articles
+    width: 100%
+    padding: 10px
+    border: solid 1px #ececec
+
+    p
+        text-align: center
+        margin: 0
