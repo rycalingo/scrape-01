@@ -18,20 +18,13 @@
   right: 20px;
   width: 190px;
   margin: 10px 10px;
-  background-color: #ffb100;
-<<<<<<< HEAD
-  border: 2px solid transparent;
+  background-color: #ff9f28;
+  border: 2px solid rgba(0, 0, 0, 0);
   color: #e5e5e5;
   transition: 0.3s border color; }
   #btnFetch:hover {
     color: #ffffff;
     border: 2px solid white; }
-=======
-  border: 1px solid #ffb100;
-  color: #ffffff; }
-  #btnFetch:hover {
-    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
->>>>>>>  a lttle styling
 
 .stage {
   width: 100%;
@@ -47,7 +40,6 @@
     height: 200px;
     margin: 10px;
     padding: 10px;
-<<<<<<< HEAD
     background-color: #ffffff;
     box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
 
@@ -57,18 +49,6 @@
   padding: 10px;
   border: solid 1px #ececec; }
   .empty_list p {
-=======
-    color: #ffffff;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
-
-.none-found {
-  width: 100%;
-  padding: 10px;
-  border: solid 1px #ececec;
-  box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
-  .none-found p {
->>>>>>>  a lttle styling
     text-align: center;
     margin: 0; }
 

@@ -67,7 +67,7 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 
 // Import routes and give the server access to them.
-require("./routes/index.js")(app);
+require("./routes/index")(app);
 
 // Start the server
 app.listen(PORT, function() {
