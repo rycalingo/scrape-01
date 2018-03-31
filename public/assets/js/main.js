@@ -2,13 +2,14 @@
 $('docuent').ready( () => {
 
     $('#btnFetch').on('click', () => {
-        $.get('/fetch', () => {
+        $.get('/fetch', data => {
+          console.log(data);
         }).then(location.reload());
 
       });
 
       $('#btnSaveArticle').on('click', () => {
-        $.get("/api/fetch").then( data => {});
+        $.get("/api/save").then( data => {});
 
       });
 

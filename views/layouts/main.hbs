@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title>Article Swiper - {{title}}</title>
+  	<title>Article Swiper - {{html_Title}}</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -24,19 +24,19 @@
         <div class="jumbotron jumbotron-fluid" id="main_sec">
           <div class="container">
             <h1>MOONGO SCRAPER</h1> 
-            <p>{{page}}</p> 
+            <p>{{pageName}}</p> 
 
-            {{#is title "Home"}} <button type="button" class="btn" id="btnFetch">Fetch</button>{{else}}  {{/is}}
+            {{#is html_title "Home"}} <button type="button" class="btn" id="btnFetch">Fetch</button>{{else}}  {{/is}}
 
 
           </div>
         </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
             <ul class="navbar-nav">
-              <li class="nav-item {{#is title "Home"}} active {{else}}  {{/is}}">
+              <li class="nav-item {{#is html_title "Home"}} active {{else}}  {{/is}}">
                   <a class="nav-link" href="/">Home</a>
               </li>
-              <li class="nav-item {{#is title "Saved"}} active {{else}}  {{/is}}">
+              <li class="nav-item {{#is html_Title "Saved"}} active {{else}}  {{/is}}">
                   <a class="nav-link" href="/saved">Saved</a>
               </li>
             </ul>
