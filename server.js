@@ -37,10 +37,13 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
-// Routes
 
 // parse application/json
 app.use(bodyParser.json());
+
+// Routes
+// Import routes and give the server access to them.
+require("./routes")(app);
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -63,11 +66,7 @@ var hbs = exphbs.create({
 });
 
 app.engine("hbs", hbs.engine);
-
 app.set("view engine", "hbs");
-
-// Import routes and give the server access to them.
-require("./routes/index")(app);
 
 // Start the server
 app.listen(PORT, function() {

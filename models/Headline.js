@@ -17,7 +17,7 @@ var HeadlineSchema = new Schema({
     required: true
   },
   // `summary` is required and of type String
-  summary: {
+  teaser: {
     type: String,
     required: true
   }

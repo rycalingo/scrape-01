@@ -1,62 +1,53 @@
+// Our scraping tools
+// Axios is a promised-based http library, similar to jQuery's Ajax method
+// It works on the client and on the server
+var axios = require("axios");
+var cheerio = require("cheerio");
 
-var express = require("express");
+// Require all models
+var db = require("../models");
 
-var router = express.Router();
+module.exports = function(app) {
 
-// Import the model "headline" to use its database functions.
-var headline = require("../models/index");
-
-// Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  headline.selectAll(function(data) {
-    var hbsObject = {
-        headlines: data
-    };
-    // console.log(hbsObject);
-    res.render("index", hbsObject);
+  app.get("/fetch", function(req, res) {
+      // First, we grab the body of the html with request
+      axios.get("https://www.smashingmagazine.com/articles/").then(function(response) {
+        // Then, we load that into cheerio and save it to $ for a shorthand selector
+        var $ = cheerio.load(response.data);
+    
+        // Now, we grab every h2 within an article tag, and do the following:
+        $("article").each(function(i, element) {
+          // Save an empty result object
+          var result = {};
+    
+          // Add the text and href of every link, and save them as properties of the result object
+          result.title = $(this)
+            .find("h1")
+            .children("a")
+            .text();
+          result.link = $(this)
+            .find("h1")
+            .children("a")
+            .attr("href");
+          result.teaser = $(this)
+            .find(".article--post__teaser")
+            .text();
+    
+          // Create a new Article using the `result` object built from scraping
+          db.Headline.create(result)
+            .then(function(dbArticle) {
+              // View the added result in the console
+              console.log(dbArticle);
+            })
+            .catch(function(err) {
+              // If an error occurred, send it to the client
+              return res.json(err);
+            });
+        });
+    
+        // If we were able to successfully scrape and save an Article, send a message to the client
+        res.send("Scrape Complete");
+      });
   });
-});
-
-router.post("/api/fetch", function(req, res) {
-  headline.insertOne([
-    "title"
-  ], [
-    req.body.headline
-  ], function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
-});
-
-router.put("/api/fetch/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  headline.updateOne({
-    devoured: req.body.devoured
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
-
-router.delete("/api/fetch/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-console.log(condition);
-headline.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
-
-// Export routes for server.js to use.
-module.exports = router;
+  
+};
