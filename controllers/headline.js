@@ -1,22 +1,27 @@
 
 // Import the model to use its database functions.
-var db = require("../models/");
+var db = require("../models");
 
 module.exports = function(app) {
 
     // Create all our routes and set up logic within those routes where required.
     app.get("/", function(req, res) {
-        var hbsObject = { html_title: 'Home', pageName: 'Home' }
-
-        db.Headline.find(function(data) {
-
-            hbsObject.headline = data;
-
-            // console.log(hbsObject);
+        console.log(`"in contollers/headlines"`)
+        var hbsObject = {}
+        db.Headline.find({})
+        .then( function(data) {
+            hbsObject.html_title = 'Home', 
+            hbsObject.pageName = 'Home',
+            hbsObject.article = data
+            // console.log(data);
+        })
+        .then( function() {
+            console.log(hbsObject);
             res.render("home", hbsObject);
         });
-    });
 
+
+    });
     // app.post("/api/burgers", function(req, res) {
     //     db.Headline.insertOne([
     //         "headline"

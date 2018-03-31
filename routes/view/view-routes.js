@@ -10,12 +10,12 @@ module.exports = function(app) {
             pageName: 'Saved Articles',
         });
     });
-    app.get('*', function (req, res) {
-        // var dir = req.params.path;
-        res.render('home', {
-            html_title: 'Home', 
-            pageName: 'Home'
-        });
+    // app.get('*', function (req, res) {
+    //     // var dir = req.params.path;
+    //     res.render('home', {
+    //         html_title: 'Home', 
+    //         pageName: 'Home'
+    //     });
 
-    });
+    // });
 };
