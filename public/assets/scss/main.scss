@@ -54,15 +54,24 @@
         padding: 10px 20px;
     }
     .article-item {
-        width: 320px;
-        height: 200px;
-        margin: 10px;
-        padding: 10px;
+        width: 580px;
+        height: auto;
+        margin: 30px;
+        padding: 20px;
         background-color: #ffffff;
+        overflow: hidden;
         @include box-shadow;
     }
 }
+.article-item {
 
+    .article-title {
+        font-size: 18px;
+    }
+    .a {
+        font-size: 14px;
+    }
+}
 .empty_list {
     @include box-shadow;
     width: 100%;
