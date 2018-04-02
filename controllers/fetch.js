@@ -21,7 +21,8 @@ module.exports = function(app) {
       axios.get("https://www.smashingmagazine.com/articles/").then(function(response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
-    
+        // handelbar Obj
+
         // Now, we grab every h2 within an article tag, and do the following:
         $("article").each(function(i, element) {
           // Save an empty result object
@@ -47,11 +48,19 @@ module.exports = function(app) {
               // If an error occurred, send it to the client
               return res.json(err);
             });
+
         });
-    
+
+        // res.render("home", hbsObject);
         // If we were able to successfully scrape and save an Article, send a message to the client
         res.send("Scrape Complete");
       });
+
+      db.Headline.find({})
+        .then( function(data) {
+          var hbsObject = { "article": data }
+            console.log(data);
+        });
   });
   
 };

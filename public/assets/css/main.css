@@ -21,10 +21,16 @@
   background-color: #ff9f28;
   border: 2px solid transparent;
   color: #e5e5e5;
-  transition: 0.3s border color; }
+  font-weight: 600;
+  transition: 0.3s border, color; }
   #btnFetch:hover {
     color: #ffffff;
     border: 2px solid white; }
+
+.btnSaveArticle {
+  position: absolute;
+  right: 20px;
+  bottom: 10px; }
 
 .stage {
   width: 100%;
@@ -44,11 +50,12 @@
     overflow: hidden;
     box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12); }
 
-.article-item .article-title {
-  font-size: 18px; }
-
-.article-item .a {
-  font-size: 14px; }
+.article-item {
+  position: relative; }
+  .article-item .article-title {
+    font-size: 18px; }
+  .article-item .a {
+    font-size: 14px; }
 
 .empty_list {
   box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.12);

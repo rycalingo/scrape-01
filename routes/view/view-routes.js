@@ -8,7 +8,7 @@ module.exports = function(app) {
         res.render('saved', {
             html_title: 'Saved', 
             pageName: 'Saved Articles',
-        });
+        })
     });
     // Create all our routes and set up logic within those routes where required.
     app.get("/", function(req, res) {
@@ -22,7 +22,7 @@ module.exports = function(app) {
             // console.log(data);
         })
         .then( function() {
-            console.log(hbsObject);
+            // console.log(hbsObject);
             res.render("home", hbsObject);
         });
     });

@@ -33,8 +33,9 @@
 
     // text
     color: #e5e5e5;
+    font-weight: 600;
 
-    transition: 0.3s border color;
+    transition: 0.3s border, color;
 
     &:hover {
         color: #ffffff;
@@ -42,6 +43,11 @@
     }
 }
 
+.btnSaveArticle {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
 .stage {
     width: 100%;
     margin-bottom: 10px;
@@ -64,6 +70,7 @@
     }
 }
 .article-item {
+    position: relative;
 
     .article-title {
         font-size: 18px;
