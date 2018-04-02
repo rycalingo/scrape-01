@@ -4,25 +4,24 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    // Create all our routes and set up logic within those routes where required.
-    app.get("/", function(req, res) {
-        console.log(`"in contollers/headlines"`)
-        var hbsObject = {}
-        db.Headline.find({})
-        .then( function(data) {
-            hbsObject.html_title = 'Home', 
-            hbsObject.pageName = 'Home',
-            hbsObject.article = data
-            // console.log(data);
-        })
-        .then( function() {
-            console.log(hbsObject);
-            res.render("home", hbsObject);
-        });
+    // // Create all our routes and set up logic within those routes where required.
+    // app.get("/", function(req, res) {
+    //     console.log(`"in contollers/headlines"`)
+    //     var hbsObject = {}
+    //     db.Headline.find({})
+    //     .then( function(data) {
+    //         hbsObject.html_title = 'Home', 
+    //         hbsObject.pageName = 'Home',
+    //         hbsObject.article = data
+    //         // console.log(data);
+    //     })
+    //     .then( function() {
+    //         console.log(hbsObject);
+    //         res.render("home", hbsObject);
+    //     });
+    // });
 
-
-    });
-    // app.post("/api/burgers", function(req, res) {
+    // app.post("/api/headline", function(req, res) {
     //     db.Headline.insertOne([
     //         "headline"
     //     ], [
@@ -33,7 +32,7 @@ module.exports = function(app) {
     //     });
     // });
 
-    // app.put("/api/burgers/:id", function(req, res) {
+    // app.put("/api/headline/:id", function(req, res) {
     // var condition = "id = " + req.params.id;
 
     // console.log("condition", condition);
@@ -50,7 +49,7 @@ module.exports = function(app) {
     //     });
     // });
 
-    // app.delete("/api/burgers/:id", function(req, res) {
+    // app.delete("/api/headline/:id", function(req, res) {
     //     var condition = "id = " + req.params.id;
     //     console.log(condition);
     //     burger.delete(condition, function(result) {

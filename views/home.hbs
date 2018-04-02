@@ -2,21 +2,7 @@
 
 
     <div class="article-wrapper">
-    {{#if article}}
-        {{#each article}}
-            <div class="article-item shadow" id="{{id}}">
-                <h3 class="article-title">Title: {{title}}</h3>
-                <a href="{{link}}">Article Links:  {{link}}</a>
-                <p class="acticle-summary">Summary: {{teaser}}</p>
-            </div>
-        {{/each}}
-        {{else}}
-        <div class="empty_list">
-            <p>No Articles Found!</p>
-        </div>
-
-    {{/if}}
-
+        {{>article}}
     </div>
 </div>
 

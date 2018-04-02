@@ -1,0 +1,14 @@
+    {{#if article}}
+        {{#each article}}
+            <div class="article-item shadow" id="{{id}}">
+                <h3 class="article-title">{{title}}</h3>
+                <a href="{{link}}">{{link}}</a>
+                <p class="acticle-summary">{{teaser}}</p>
+            </div>
+        {{/each}}
+        {{else}}
+        <div class="empty_list">
+            <p>No Articles Found!</p>
+        </div>
+
+    {{/if}}

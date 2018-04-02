@@ -2,7 +2,7 @@
 $('docuent').ready( () => {
 
     $('#btnFetch').on('click', () => {
-        $.get('/fetch', data => {
+        $.get('/api/fetch', data => {
           console.log(data);
         }).then(location.reload());
 
