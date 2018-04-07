@@ -28,15 +28,13 @@ module.exports = function(app) {
           // Save an empty result object
           var result = {};
           // Add the text and href of every link, and save them as properties of the result object
-          result.title = $(this)
-            .find("h1")
-            .children("a")
-            .text();
-          result.link = $(this)
-            .find("h1")
-            .children("a")
-            .attr("href");
+          result.title = $(this).find("h1").children("a").text();
+          
+          result.link = $(this).find("h1").children("a").attr("href");
+          
           result.teaser = textGrab( $(this).find(".article--post__teaser").text() );
+          
+          result.isSaved = false;
     
           // Create a new Article using the `result` object built from scraping
           db.Headline.create(result)

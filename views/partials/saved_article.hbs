@@ -1,14 +1,16 @@
     {{#if article}}
         {{#each article}}
+            {{#if isSaved}}
             <div class="article-item shadow" id="{{id}}">
                 <h3 class="article-title">{{title}}</h3>
                 <a href="https://www.smashingmagazine.com/articles/{{link}}">Follow Link</a>
                 <p class="acticle-summary">{{teaser}}</p>
 
-                    <a href="api/save" class="btnSaveArticle">Delet</a>
+                    <a href="" class="btnSaveArticle">Delete</a>
 
                 {{!-- ========== --}} 
             </div>
+            {{/if}}
         {{/each}}
         {{else}}
         <div class="empty_list">

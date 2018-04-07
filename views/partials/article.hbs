@@ -1,14 +1,16 @@
     {{#if article}}
         {{#each article}}
+            {{#unless isSaved}}
             <div class="article-item shadow" id="{{id}}">
                 <h3 class="article-title">{{title}}</h3>
-                <a href="https://www.smashingmagazine.com/articles/{{link}}">Follow Link</a>
+                <a href="https://www.smashingmagazine.com/{{link}}">Follow Link</a>
                 <p class="acticle-summary">{{teaser}}</p>
 
-                <a href="api/save" class="btnSaveArticle">Save</a>
+                <a href="" class="btnSaveArticle">Save</a>
 
                 {{!-- ========== --}}
             </div>
+            {{/unless}}
         {{/each}}
         {{else}}
         <div class="empty_list">

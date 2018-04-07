@@ -8,14 +8,28 @@ $('docuent').ready( function() {
 
       })
       .then( () => {
-        $(".article-wrapper").load(" .article-wrapper > *");
+        location.reload();
+        // $(".article-wrapper").load(" .article-wrapper > *");
       });
 
     });
-    $('.btnSaveArticle').on('click', () => {
-      
-      $.get("/api/save").then( data => {});
+    $('.btnSaveArticle').on('click', function(e) {
+      e.preventDefault();
+      let articleID = $(e.target).closest('.article-item').attr('id');
 
+      // console.log(articleID);
+      $.ajax({
+        method: "POST",
+        url: "/api/article/" + articleID,
+        data: {
+          _id: articleID,
+          isSaved: true
+        }
+      }).then( (data)=> {
+
+        console.log(data);
+        $(".article-wrapper").load(" .article-wrapper > *");
+      });
     });
 
 });
