@@ -5,7 +5,7 @@
   "main": "start",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-css": "node-sass -w public/assets/scss/ -o public/assets/css/",
+    "watch-css": "node-sass -w --source-map true public/assets/scss/ -o public/assets/css/",
     "server": "nodemon server.js",
     "start" : "npm run server & npm run watch-css"
   },
