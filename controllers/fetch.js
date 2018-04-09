@@ -7,8 +7,6 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("../models");
 
-module.exports = function(app) {
-
   // Grab only text from ".article--post__teaser"
   function textGrab(str) {
     var text = str.trim();
@@ -16,7 +14,9 @@ module.exports = function(app) {
     return results;
   };
 
-  app.get("/api/fetch", function(req, res) {
+module.exports = {
+
+  goScrape: function(req, res) {
       // First, we grab the body of the html with request
       axios.get("https://www.smashingmagazine.com/articles/").then(function(response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -54,11 +54,11 @@ module.exports = function(app) {
         res.send("Scrape Complete");
       });
 
-      db.Headline.find({})
-        .then( function(data) {
-          var hbsObject = { "article": data }
-            console.log(data);
-        });
-  });
+      // db.Headline.find({})
+      //   .then( function(data) {
+      //     var hbsObject = { "article": data }
+      //       console.log(data);
+      //   });
+  }
   
 };

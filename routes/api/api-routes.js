@@ -1,12 +1,21 @@
-// Routes
+// API Routes
 // =============================================================
+
+const fetch = require("../../controllers/fetch");
+const headline = require("../../controllers/headline");
+const note = require("../../controllers/note");
+
 module.exports = function(app) {
   
-  module.exports = {
-    
-       fetch: require("../../controllers/fetch")(app),
-    headline: require("../../controllers/headline")(app),
-        note: require("../../controllers/note")(app)
-  };
+  try {
+  app.get("/api/fetch", fetch.goScrape);
+
+  app.post("/api/save/:id", headline.save);
+
+  app.post("/api/delete/:id", note.delete);
+  }
+  catch(err) {
+    if (err) console.log(err);
+  }
 
 };

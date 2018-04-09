@@ -1,6 +1,6 @@
 
 $('docuent').ready( function() {
-
+// Fetch Articles
     $('#btnFetch').on('click', () => {
       
       $.get('/api/fetch', data => {
@@ -13,6 +13,7 @@ $('docuent').ready( function() {
       });
 
     });
+// Save Article
     $('.btnSaveArticle').on('click', function(e) {
       e.preventDefault();
       let articleID = $(e.target).closest('.article-item').attr('id');
@@ -20,16 +21,39 @@ $('docuent').ready( function() {
       // console.log(articleID);
       $.ajax({
         method: "POST",
-        url: "/api/article/" + articleID,
+        url: "/api/save/" + articleID,
         data: {
-          _id: articleID,
           isSaved: true
+        }
+      }).then( (data)=> {
+        console.log(data);
+
+        location.reload();
+        // $(".stage").load(" .article-wrapper");
+      });
+    });
+
+// Delete Saved
+    $('.btnDelete').on('click', function(e) {
+      e.preventDefault();
+      let articleID = $(e.target).closest('.article-item').attr('id');
+
+      // console.log(articleID);
+      $.ajax({
+        method: "POST",
+        url: "/api/delete/" + articleID,
+        data: {
+          isSaved: false
         }
       }).then( (data)=> {
 
         console.log(data);
-        $(".article-wrapper").load(" .article-wrapper > *");
+        location.reload();
+        // $(".stage").load(" .article-wrapper");
       });
     });
 
+    $('.btnSavenote').on('click', function(e) {
+      e.preventDefault();
+    });
 });
