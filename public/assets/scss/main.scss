@@ -43,10 +43,10 @@
     }
 }
 
-.btnSaveArticle {
+.button-group {
     position: absolute;
     right: 20px;
-    bottom: 10px;
+    bottom: 15px;
 }
 .stage {
     width: 100%;
@@ -89,4 +89,10 @@
         text-align: center;
         margin: 0;
     }
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    resize: none;
 }
