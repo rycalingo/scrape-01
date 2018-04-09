@@ -6,10 +6,13 @@
                 <a href="https://www.smashingmagazine.com/{{link}}">Follow Link</a>
                 <p class="acticle-summary">{{teaser}}</p>
 
-                <a href="" class="btnSaveArticle">Save</a>
+                <div class="button-group">
+                    <a href="" class="btnSaveArticle">Save</a>
+                </div>
 
-                {{!-- ========== --}}
             </div>
+            {{else}}
+            {{!-- else do nothing --}}
             {{/unless}}
         {{/each}}
         {{else}}

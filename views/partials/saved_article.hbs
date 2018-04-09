@@ -6,15 +6,23 @@
                 <a href="https://www.smashingmagazine.com/articles/{{link}}">Follow Link</a>
                 <p class="acticle-summary">{{teaser}}</p>
 
-                    <a href="" class="btnSaveArticle">Delete</a>
+                <div class="button-group">
+                    <a href="" class="btnAddnote" data-toggle="modal" data-target="#noteModal">Add Notes</a>
+                    <span>|</span>
+                    <a href="" class="btnDelete">Delete</a>
+                </div>
 
-                {{!-- ========== --}} 
             </div>
+            {{else}}
+            {{!-- else do nothing --}}
             {{/if}}
         {{/each}}
         {{else}}
+
         <div class="empty_list">
-            <p>No Articles Found!</p>
+            <p>There is nothing saved!</p>
         </div>
 
     {{/if}}
+
+    {{>note}}
